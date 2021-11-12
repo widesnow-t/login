@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php foreach ($errors as $error): ?>
                     <li><?= h($error) ?></li>
                 <?php endforeach; ?>
-        <?php endif; ?>
+                <?php endif; ?>
             </ul>
         <form action="" method="post">
             <label for="email">メールアドレス</label>
