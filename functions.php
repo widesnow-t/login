@@ -103,9 +103,9 @@ function findUserById($id)
     SELECT
         *
     FROM
-        user
+        users
     WHERE
-        id = id;
+        id = :id;
     EOM;
 
     $stmt = $dbh->prepare($sql);
