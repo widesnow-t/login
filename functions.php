@@ -95,3 +95,22 @@ function findUserByEmail($email)
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+function findUserById($id)
+{
+    $dbh = connectDb();
+
+    $sql = <<<EOM
+    SELECT
+        *
+    FROM
+        users
+    WHERE
+        id = :id;
+    EOM;
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
