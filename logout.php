@@ -8,7 +8,7 @@ $_SESSION = [];
 
 //クッキーのセッションIDを削除
 if (isset($_COOKIE[session_name()])) {
-    setcookie(session_name(), ', time( - 86400');
+    setcookie(session_name(), '', time() - 86400);
 }
 
 //サーバー上のセッションファイルを削除

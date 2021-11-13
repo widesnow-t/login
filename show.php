@@ -22,7 +22,7 @@ $current_user = findUserById($_SESSION['id']);
         <h2 class="sub-title"><?= h($current_user['name']) ?>さん ようこそ！</h2>
         <p class="info">登録したユーザーのみ閲覧可能なページです</p>
         <div class="btn-area">
-            <a href="" class="btn log-out-btn">ログアウト</a>
+            <a href="logout.php" class="btn log-out-btn">ログアウト</a>
         </div>
     </div>
 </body>

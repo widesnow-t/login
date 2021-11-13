@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //バリデーション
     $errors = loginValidate($email, $password);
 
+
     if (empty($errors)) {
         $user = findUserByEmail($email);
 
@@ -32,14 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id'] = $user['id'];
             header('Location: show.php');
             exit;
+            var_dump($user);
         } else {
             $errors[] = MSG_EMAIL_PASSWORD_NOT_MATCH;
         }
     }
 }
-var_dump($user);
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <?php include_once __DIR__ . '/_head.html' ?>
@@ -47,7 +47,7 @@ var_dump($user);
 <body>
     <div class="wrapper">
         <h1>Log In</h1>
-        <?php if ($errors): ?>
+        <?php if ($errors) : ?>
             <ul class="errors">
                 <?php foreach ($errors as $error): ?>
                     <li><?= h($error) ?></li>
